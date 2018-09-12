@@ -134,4 +134,4 @@ CNNDM with phrases: R1 42.0, R2 15.9, RL 37.3
 
 ### (f) Use probabilities in Bottom-Up Attention
 
-We are currently working on finishing the documentation. The final version will provide (1) models and data to download. 
+We are currently working on finishing the documentation. The final version will provide (1) models and data to download, (2) our NYT processing script. 
