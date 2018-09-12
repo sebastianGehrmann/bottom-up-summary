@@ -1,0 +1,52 @@
+{
+  "dataset_reader": {
+    "type": "sequence_tagging",
+    "word_tag_delimiter": "###",
+    "token_indexers": {
+      "tokens": {
+        "type": "single_id",
+        "lowercase_tokens": true
+      },
+      "elmo": {
+        "type": "elmo_characters"
+      }
+    }
+  },
+  "train_data_path": "data/binary/multicopy.train.txt",
+  "validation_data_path": "data/binary/multicopy.val.txt",
+  "model": {
+    "type": "crf_tagger",
+    "text_field_embedder": {
+            "tokens": {
+                    "type": "embedding",
+                    "embedding_dim": 100,
+                    "pretrained_file": "../duolingo/data/glove.6B.100d.txt.gz",
+                    "trainable": true
+            },
+           "elmo": {
+                "type": "elmo_token_embedder",
+                "options_file": "../duolingo/data/elmo_2x4096_512_2048cnn_2xhighway_options.json",
+                "weight_file": "../duolingo/data/elmo_2x4096_512_2048cnn_2xhighway_weights.hdf5",
+                "do_layer_norm": true,
+                "dropout": 0.5
+            }
+        
+    },
+    "encoder": {
+            "type": "lstm",
+            "input_size": 1124,
+            "hidden_size": 200,
+            "num_layers": 2,
+            "dropout": 0.5,
+            "bidirectional": true
+    }
+  },
+  "iterator": {"type": "basic", "batch_size": 32},
+  "trainer": {
+    "optimizer": "adagrad",
+    "grad_clipping": 2.0,
+    "num_epochs": 10,
+    "patience": 10,
+    "cuda_device": 1,
+  }
+}
