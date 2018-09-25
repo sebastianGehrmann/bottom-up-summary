@@ -38,7 +38,7 @@ NYT: R1 45.13, R2 30.13, RL 39.67
 
 ### (b) Create content-selection dataset
 
-Allennlp requires a specific format of the training data. We provide a script to process a dataset comprising line-separated examples in the form `source.txt` and `target.txt`. 
+Allennlp requires a specific format of the training data. We provide a script to process a dataset comprising line-separated examples in the form `src.txt` and `tgt.txt`. 
 
 #### Commands
 
@@ -75,8 +75,8 @@ To train a model, run the command
 
 ```
 python -m allennlp.run train 
-          			   allennlp_config/$filename.json 
-			     	   --serialization-dir $output_folder
+                       allennlp_config/$filename.json 
+                       --serialization-dir $output_folder
 ```
 
 Make sure to use a different `$output_folder` for each experiment to prevent accidentally overwriting and reusing models. 
@@ -96,7 +96,7 @@ During preprocessing, we create a file named `*.src.txt`. This one can be used t
 
 ```
 python -m allennlp.run predict 
-				       $modelfile 
+                       $modelfile 
                        $datafile 
                        --output $outputfile 
                        --cuda-device 0 
@@ -106,7 +106,7 @@ python -m allennlp.run predict
 
 ### (e) Use Content-Selector as Extractive Summarizer
 
-One option is to directly use the trained Content-Selector as extractive model. We created a script that takes care of this called `predict_to_text.py`.
+One option is to directly use the trained Content-Selector as extractive model. We created a script that takes care of this called `prediction_to_text.py`.
 
 The script can also be used to evaluate against the gold targets as created by the preprocessing by setting `tgt`. You can switch between extraction of sentences and phrases by using the `style` parameter. If you want additional indicators in between extracted phrases, use `divider`. The threshold for the extraction of phrases can be set by `threshold`. Finally, we provide a `prune` option to clip the number of words in an input (you want to use the same number of words as in preprocessing for best results). 
 
@@ -118,7 +118,7 @@ To run, call
 ```
 python prediction_to_text.py -data $predictionfile \
                              -output $outfname \
-							 -tgt $tgtfile [optional, prints F1, AUC etc.] \
+                             -tgt $tgtfile [optional, prints F1, AUC etc.] \
                              -threshold 0.25 \
                              -divider "" \
                              -style [sentences, phrases, threesent] \
