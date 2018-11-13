@@ -134,5 +134,26 @@ CNNDM with phrases: R1 42.0, R2 15.9, RL 37.3
 
 ### (f) Use probabilities in Bottom-Up Attention
 
-We are currently working on finishing the documentation. The final version will provide (1) models and data to download, (2) our NYT processing script. 
-For now, we refer to the (undocumented) branch here: https://github.com/sebastianGehrmann/OpenNMT-py/tree/copy_constraint 
+You can find outputs of our model here: https://drive.google.com/file/d/1EqiEVt3H7z7oCQBKkCO7MXoJkXM7Cipr/view?usp=sharing
+
+We are currently working on documenting the code to combine the allennlp output and the OpenNMT model. If you want to run the inference, please download this branch: https://github.com/sebastianGehrmann/OpenNMT-py/tree/copy_constraint 
+
+You will need to run this command: 
+```
+python translate.py -model $model_PATH                      # You can use a model downloaded from the link above
+                    -src $CNNDM_test_input_PATH             # See download link below
+                    -constraint_file $allennlp_output_PATH  # Follow instructions or see download link below
+                    -threshold $BOTTOM_UP_THRESHOLD         # We found numbers between 0.1 and 0.2 to work. Our reported numbers use 0.15
+                    -batch_size 1                           # Currently non-batched, sorry!
+                    -min_length 35          
+                    -stepwise_penalty 
+                    -coverage_penalty summary 
+                    -beta 5 
+                    -length_penalty wu 
+                    -alpha 0.9 
+                    -block_ngram_repeat 3 
+                    -ignore_when_blocking "." "" "" 
+                    -output $prediction_PATH  
+                    -gpu $gpuid
+```
+
