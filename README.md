@@ -1,7 +1,6 @@
 # Bottom-Up Summarization
 
-This repository describes the process of including Bottom-Up Attention inside your abstractive summarization model. 
-
+This repository describes the process of including Bottom-Up Attention inside your abstractive summarization model. If you are interested in downloading predictions, models or others, please look at the bottom of the page. 
 
 The article will appear in the proceedings of EMNLP 2018. A preprint is available here: [https://arxiv.org/pdf/1808.10792.pdf](https://arxiv.org/pdf/1808.10792.pdf)
 
@@ -157,3 +156,12 @@ python translate.py -model $model_PATH                      # You can use a mode
                     -gpu $gpuid
 ```
 
+### Downloadable Content
+
+Note that our predictions have sentence tags `<t>` and `</t>` which need to be removed for ROUGE scoring. To reproduce our numbers, please follow the evaluation instructions [here](http://opennmt.net/OpenNMT-py/Summarization.html).
+
+1) Model: https://s3.amazonaws.com/opennmt-models/Summary/ada6_bridge_oldcopy_tagged_larger_acc_54.84_ppl_10.58_e17.ptt
+2) allennlp input: https://drive.google.com/file/d/1TNGGBX7iAgvkfyFsDzPKvlbWd4vmCVTR/view?usp=sharing
+3) allennlp output: https://drive.google.com/file/d/1IBByzlLwj_JKy-V_mB7563HtRYZilsOl/view?usp=sharing
+4) Bottom-Up Attention input: https://drive.google.com/file/d/1k-LqK3Lt7czIKyVrH_tr3P3Qd_39gLhk/view?usp=sharing
+5) Bottom-Up Attention output: https://drive.google.com/file/d/1EqiEVt3H7z7oCQBKkCO7MXoJkXM7Cipr/view?usp=sharing
