@@ -160,7 +160,7 @@ python translate.py -model $model_PATH                      # You can use a mode
 
 Note that our predictions have sentence tags `<t>` and `</t>` which need to be removed for ROUGE scoring. To reproduce our numbers, please follow the evaluation instructions [here](http://opennmt.net/OpenNMT-py/Summarization.html).
 
-1) Model: https://s3.amazonaws.com/opennmt-models/Summary/ada6_bridge_oldcopy_tagged_larger_acc_54.84_ppl_10.58_e17.ptt
+1) Model: https://s3.amazonaws.com/opennmt-models/Summary/ada6_bridge_oldcopy_tagged_larger_acc_54.84_ppl_10.58_e17.pt
 2) allennlp input: https://drive.google.com/file/d/1TNGGBX7iAgvkfyFsDzPKvlbWd4vmCVTR/view?usp=sharing
 3) allennlp output: https://drive.google.com/file/d/1IBByzlLwj_JKy-V_mB7563HtRYZilsOl/view?usp=sharing
 4) Bottom-Up Attention input: https://drive.google.com/file/d/1k-LqK3Lt7czIKyVrH_tr3P3Qd_39gLhk/view?usp=sharing
