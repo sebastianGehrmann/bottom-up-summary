@@ -32,7 +32,7 @@
             }
         
     },
-    "stacked_encoder": {
+    "encoder": {
             "type": "lstm",
             "input_size": 1124,
             "hidden_size": 256,
