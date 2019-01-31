@@ -37,7 +37,7 @@ def compile_substring(start, end, split):
     return " ".join(split[start:end+1])
 
 def format_json(s):
-    return "{\"sentence\": \""+ s +"\"}\n"
+    return json.dumps({'sentence':s})+"\n"
 
 def splits(s, num=200):
     return s.split()[:num]
